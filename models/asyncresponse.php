@@ -30,6 +30,8 @@ class AsyncResponse {
 
 		// fetch data from cURL if it has not yet been loaded
 		if (!array_key_exists('text', $this->data)) {
+			AsyncRequest::run();
+
 			$data = curl_multi_getcontent($this->ch);
 
 			$header_size = curl_getinfo($this->ch, CURLINFO_HEADER_SIZE);
@@ -37,15 +39,21 @@ class AsyncResponse {
 			$headers_raw = array_map('trim', explode("\n", substr($data, 0, $header_size)));
 
 			foreach ($headers_raw as $header) {
-				if (strpos(':', $header) !== false) {
+				if (empty($header))
+					continue;
+
+				if (strpos($header, ':') !== false) {
 					list($key, $value) = preg_split('/: */', $header, 2);
-					$this->data['headers'][$key] = $value;
+					$this->data['headers'][strtolower($key)] = $value;
+				} elseif (preg_match('#HTTP/1\.[0-9] ([0-9]{3}) .#', $header, $match)) {
+					$this->data['headers']['status'] = $header;
+					$this->data['headers']['status_code'] = $match[1];
 				} else {
-					$this->data['headers'][] = $value;
+					$this->data['headers'][] = $header;
 				}
 			}
 
-			curl_multi_remove_handle($this->ch);
+			AsyncRequest::remove($this->ch);
 			curl_close($this->ch);
 		}
 

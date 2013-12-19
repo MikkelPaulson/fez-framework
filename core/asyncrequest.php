@@ -59,4 +59,22 @@ class AsyncRequest {
 
 	}
 
+	public static function run() {
+		do {
+			$mrc = curl_multi_exec(self::$mh, $active);
+		} while ($mrc == CURLM_CALL_MULTI_PERFORM);
+
+		while ($active && $mrc == CURLM_OK) {
+			if (curl_multi_select(self::$mh) != -1) {
+				do {
+					$mrc = curl_multi_exec(self::$mh, $active);
+				} while ($mrc == CURLM_CALL_MULTI_PERFORM);
+			}
+		}
+	}
+
+	public static function remove($ch) {
+		curl_multi_remove_handle(self::$mh, $ch);
+	}
+
 }
