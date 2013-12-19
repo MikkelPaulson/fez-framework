@@ -12,6 +12,8 @@ spl_autoload_register(function($class){
 	case 'Model':				$path = 'core/model.php';					break;
 
 	// core classes
+	case 'APIClient':			$path = 'core/apiclient.php';				break;
+	case 'AsyncRequest':		$path = 'core/asyncrequest.php';			break;
 	case 'DateTimeCustom':		$path = 'core/datetime.php';				break;
 	case 'ModelList':			$path = 'core/modellist.php';				break;
 	case 'Router':				$path = 'core/router.php';					break;
@@ -20,6 +22,7 @@ spl_autoload_register(function($class){
 	case 'View':				$path = 'core/view.php';					break;
 
 	// models
+	case 'AsyncResponse':		$path = 'models/asyncresponse.php';			break;
 	case 'CLI':					$path = 'models/cli.php';					break;
 	case 'CLIProgressBar':		$path = 'models/cli.php';					break;
 	case 'CSV':					$path = 'models/csv.php';					break;

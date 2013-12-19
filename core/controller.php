@@ -14,6 +14,8 @@ abstract class Controller {
 	public $data = [];
 	public $layout = 'default';
 
+	public $content_type = 'text/html';
+
 	private $enqueued = ['js' => [], 'css' => []];
 
 

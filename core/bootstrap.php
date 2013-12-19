@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Main bootstrap module of Fez Framework.
+ *
+ * @author me@mikkel.ca
+ * @copyright 2013 Mikkel Paulson. All rights reserved.
+ */
+
 // load config files
 require_once("{$config['framework_root']}/config/{$config['env']}.php");
 require_once("{$config['project_root']}/config/routes.php");
@@ -22,7 +29,17 @@ $controller->$action();
 
 
 // render output
-header('Content-type: text/html');
-header('Content-encoding: UTF-8');
+switch ($controller->content_type) {
+case 'text/html':
+	header('Content-type: text/html');
+	header('Content-encoding: UTF-8');
 
-View::render($controller, $action);
+	View::render($controller, $action);
+	break;
+case 'application/json':
+	header('Content-type: application/json');
+	header('Content-encoding: UTF-8');
+
+	echo json_encode($controller->data);
+	break;
+}
