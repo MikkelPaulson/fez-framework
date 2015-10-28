@@ -123,7 +123,7 @@ abstract class DbModel extends Model {
 	 * @return bool True on success, false otherwise
 	 */
 	public function commit() {
-		var_dump($this);
+		//var_dump($this);
 		$data = [];
 
 		if ($this->new) {

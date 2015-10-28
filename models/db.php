@@ -106,7 +106,7 @@ class Db {
 	 * @return int The numeric ID of the new record
 	 */
 	public function insert($table, $data, $delayed = false) {
-		var_dump($table, $data);
+		//var_dump($table, $data);
 		$query = "INSERT " . ($delayed?"DELAYED ":"") . "INTO `$table` (`" . implode("`,`", array_keys($data)) . "`) VALUES (" . implode(',', array_map([$this, 'formatToken'], $data)) . ");";
 		$this->query($query, array_values(array_filter($data, [$this, 'filterToken'])));
 		return $this->mysqli->insert_id;
@@ -260,8 +260,8 @@ class Db {
 
 		if ($this->mysqli->errno || strpos($query, 'agencies')) {
 			echo "\n\n";
-			var_dump($this->mysqli->error);
-			var_dump($query);
+			//var_dump($this->mysqli->error);
+			//var_dump($query);
 			echo "\n\n";
 		}
 

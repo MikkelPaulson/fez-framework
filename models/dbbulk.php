@@ -36,7 +36,7 @@ class DbBulk {
 
 		$query = "{$this->operation} INTO {$this->table} (`" . implode('`,`', $this->fields) . "`) VALUES (" . implode('),(', $rows) . ")";
 
-		var_dump($query);die();
+		//var_dump($query);die();
 
 		$this->data = [];
 	}
