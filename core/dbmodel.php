@@ -6,6 +6,7 @@
  * 
  * @uses Model
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 abstract class DbModel extends Model {
 

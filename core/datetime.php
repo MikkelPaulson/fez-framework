@@ -7,6 +7,7 @@
  * 
  * @uses DateTime
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 class DateTimeCustom extends DateTime {
 

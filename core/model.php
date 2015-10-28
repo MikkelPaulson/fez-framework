@@ -4,6 +4,7 @@
  * Basic model abstract class. Nothing exciting happening here.
  * 
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 abstract class Model {
 

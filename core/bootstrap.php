@@ -4,7 +4,7 @@
  * Main bootstrap module of Fez Framework.
  *
  * @author me@mikkel.ca
- * @copyright 2013 Mikkel Paulson. All rights reserved.
+ * @license MIT
  */
 
 // load config files

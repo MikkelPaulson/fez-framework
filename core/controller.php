@@ -4,6 +4,7 @@
  * Abstract class for site controllers. Methods are mainly used to interface with views.
  * 
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 abstract class Controller {
 

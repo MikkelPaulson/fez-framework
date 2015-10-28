@@ -5,6 +5,7 @@
  * which don't block until accessed directly.
  * 
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 
 class AsyncRequest {

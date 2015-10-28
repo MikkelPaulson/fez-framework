@@ -20,6 +20,7 @@
  * 
  * @uses Iterator
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 class ModelList implements Iterator {
 

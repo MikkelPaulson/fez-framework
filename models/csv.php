@@ -6,6 +6,7 @@
  * 
  * @uses SeekableIterator
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 class CSV implements SeekableIterator {
 

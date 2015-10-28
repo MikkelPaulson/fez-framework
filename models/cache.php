@@ -6,6 +6,7 @@
  * TODO implement smarter cache expiry?
  * 
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 class Cache {
 

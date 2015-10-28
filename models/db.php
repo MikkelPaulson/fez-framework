@@ -4,6 +4,7 @@
  * Database model.
  * 
  * @author Mikkel Paulson <me@mikkel.ca> 
+ * @license MIT
  */
 class Db {
 
